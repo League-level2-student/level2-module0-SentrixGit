@@ -35,7 +35,9 @@ public class _00_ArrayCheatSheet {
 		}
 		
 		//9 print the entire array to see if step 8 was correct
-		
-		//10. print the largest number in the array.
+		for (int i = 0; i < me.length; i++) {
+			
+			System.out.println(me[i]);
+		}
 	}
 }

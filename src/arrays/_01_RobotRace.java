@@ -1,8 +1,42 @@
 package arrays;
 
+import java.util.Random;
+
+import javax.swing.JOptionPane;
+
+import org.jointheleague.graphical.robot.Robot;
+
 public class _01_RobotRace {
 	//1. make a main method
-
+	public static void main(String[] args) {
+		Robot[] Robots = new Robot[1000];
+		
+		for (int i = 0; i < Robots.length; i++) {
+			Robots[i] = new Robot();
+			
+			Robots[i].moveTo((i) + 50, 1080);
+			Robots[i].setSpeed(50);
+			Robots[i].setWindowSize(1920,1080);
+			Robots[i].miniaturize();
+		}
+		
+		Random pos = new Random();
+		int robotWon = 0;
+		
+		for (int i = 0; robotWon == 0; i++) {
+			if (i == Robots.length)
+				i = 0;
+				
+			Robots[i].move(pos.nextInt(5));
+			
+			if (Robots[i].getY() <= 10) {
+				robotWon = i;
+			}
+			
+		}
+		
+		JOptionPane.showMessageDialog(null, "Robot " + (robotWon + 1) + " won the game!");
+	}
 	//2. create an array of 5 robots.
 
 	//3. use a for loop to initialize the robots.
